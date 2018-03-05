@@ -51,7 +51,7 @@
             // gametimer
             // 
             this.gametimer.Enabled = true;
-            this.gametimer.Interval = 10;
+            this.gametimer.Interval = 20;
             this.gametimer.Tick += new System.EventHandler(this.gametimer_Tick);
             // 
             // Form1
