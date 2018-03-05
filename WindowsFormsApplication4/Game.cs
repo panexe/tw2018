@@ -27,6 +27,7 @@ namespace WindowsFormsApplication4
         Random random;
 
         List<Shot> shots;
+        public Player player { get; set; }
 
         int screenboarder_top;
         int screenboarder_bottom;
@@ -44,6 +45,7 @@ namespace WindowsFormsApplication4
             hit = false;
 
             shots = new List<Shot>();
+            player = new Player(5, 100, 100);
             
 
             
@@ -58,14 +60,46 @@ namespace WindowsFormsApplication4
                 s.Move();
             }
 
-            int i = 0;
+            // Kolision
+
+            if(colision() == true)
+            {
+                lost();
+            }
+            
+        }
+
+        public bool colision()
+        {
             // Kollision checken 
-            while(shots[i].Position.x > )
+            for (int i = 0; i < shots.Count; i++)
+            {
+                if(shots[i].Position.x + shots[i].hitbox.Width > player.Position.x +3)
+                {
+                    // Hört auf zu überprüfen wenn die objekte weiter links als der Spieler sind 
+                    // um rechenleistung zu sparen
+                    return false;
+                }
+                if (shots[i].hitbox.Contains(player.hitbox))
+                {
+                    return true;
+                }
+
+
+                i++;
+                
+            }
+            return false;
         }
 
         public void newShot()
         {
-            shots.Add(new Shot(screenboarder_top, screenboarder_bottom, 5, 0, 5, 0, screenboarder_right);
+            shots.Add(new Shot(screenboarder_top, screenboarder_bottom, 5, 0, 5, 0, screenboarder_right));
+        }
+
+        public void lost()
+        {
+
         }
     }
 
