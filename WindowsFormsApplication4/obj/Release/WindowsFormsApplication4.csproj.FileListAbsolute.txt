@@ -1,0 +1,8 @@
+\\bsgg.local\public\homesschueler\2015_bgde\lneumann\visual studio 2015\Projects\WindowsFormsApplication4\WindowsFormsApplication4\bin\Release\WindowsFormsApplication4.exe.config
+\\bsgg.local\public\homesschueler\2015_bgde\lneumann\visual studio 2015\Projects\WindowsFormsApplication4\WindowsFormsApplication4\bin\Release\WindowsFormsApplication4.exe
+\\bsgg.local\public\homesschueler\2015_bgde\lneumann\visual studio 2015\Projects\WindowsFormsApplication4\WindowsFormsApplication4\bin\Release\WindowsFormsApplication4.pdb
+\\bsgg.local\public\homesschueler\2015_bgde\lneumann\visual studio 2015\Projects\WindowsFormsApplication4\WindowsFormsApplication4\obj\Release\WindowsFormsApplication4.Form1.resources
+\\bsgg.local\public\homesschueler\2015_bgde\lneumann\visual studio 2015\Projects\WindowsFormsApplication4\WindowsFormsApplication4\obj\Release\WindowsFormsApplication4.Properties.Resources.resources
+\\bsgg.local\public\homesschueler\2015_bgde\lneumann\visual studio 2015\Projects\WindowsFormsApplication4\WindowsFormsApplication4\obj\Release\WindowsFormsApplication4.csproj.GenerateResource.Cache
+\\bsgg.local\public\homesschueler\2015_bgde\lneumann\visual studio 2015\Projects\WindowsFormsApplication4\WindowsFormsApplication4\obj\Release\WindowsFormsApplication4.exe
+\\bsgg.local\public\homesschueler\2015_bgde\lneumann\visual studio 2015\Projects\WindowsFormsApplication4\WindowsFormsApplication4\obj\Release\WindowsFormsApplication4.pdb
