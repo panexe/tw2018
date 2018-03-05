@@ -34,6 +34,8 @@ namespace WindowsFormsApplication4
 
         public Game(int _boarder_top, int _boarder_bottom, int _boarder_right)
         {
+
+
             screenboarder_top = _boarder_top;
             screenboarder_bottom = _boarder_bottom;
             screenboarder_right = _boarder_right;
@@ -51,9 +53,14 @@ namespace WindowsFormsApplication4
         public void tick()
         {
             // Shots bewegen 
+            foreach(Shot s in shots)
+            {
+                s.Move();
+            }
 
-
+            int i = 0;
             // Kollision checken 
+            while(shots[i].Position.x > )
         }
 
         public void newShot()
