@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,7 +46,7 @@ namespace WindowsFormsApplication4
             hit = false;
 
             shots = new List<Shot>();
-            player = new Player(5, 100, 100);
+            player = new Player(5, 100, 100, new SolidBrush(Color.Brown));
             
 
             
@@ -94,12 +95,22 @@ namespace WindowsFormsApplication4
 
         public void newShot()
         {
-            shots.Add(new Shot(screenboarder_top, screenboarder_bottom, 5, 0, 5, 0, screenboarder_right));
+            shots.Add(new Shot(screenboarder_top, screenboarder_bottom, 5, 0, 5, 0, screenboarder_right,new SolidBrush(Color.Black)));
         }
 
         public void lost()
         {
 
+        }
+
+        public void draw(PaintEventArgs e)
+        {
+
+            foreach(Shot s in shots)
+            {
+                s.draw(e);
+            }
+            player.draw(e);
         }
     }
 

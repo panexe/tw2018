@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace WindowsFormsApplication4
 {
@@ -17,15 +18,21 @@ namespace WindowsFormsApplication4
 
         int screen_boarder;
 
+        int boarder_down;
+        int boarder_up;
         bool offscreen;
 
-        Rectangle hitbox { get; set; }
+        public Rectangle hitbox { get; set; }
         public Vector2 velocity { get; set; }
         public Vector2 Position { get; set; }
         Random random;
 
-        public Shot(int _posy, int _velmax_X, int _velmax_Y, int _velmin_X, int _velmin_Y, int _screen_boarder)
+        Brush brush;
+
+        public Shot(int _boarder_up, int _boarder_down, int _velmax_X, int _velmax_Y, int _velmin_X, int _velmin_Y, int _screen_boarder, Brush _brush)
         {
+            random = new Random();
+
             velocity_max_X = _velmax_X;
             velocity_max_Y = _velmax_Y;
 
@@ -34,15 +41,19 @@ namespace WindowsFormsApplication4
 
             screen_boarder = _screen_boarder;
 
+            boarder_up = _boarder_up;
+            boarder_down = _boarder_down;
+
             offscreen = false;
 
-            Position = new Vector2(-10, _posy);
+            Position = new Vector2(10, random.Next( boarder_up,boarder_down));
             hitbox = new Rectangle(new Point(Position.x,Position.y), new Size(random.Next(10, 20), 20));
 
             velocity = new Vector2(
                 random.Next( velocity_min_X,velocity_max_X), 
                 random.Next(velocity_min_Y, velocity_max_Y));
 
+            brush = _brush;
 
 
         }
@@ -54,7 +65,13 @@ namespace WindowsFormsApplication4
             {
                 offscreen = true;
             }
+            hitbox = new Rectangle(new Point(Position.x, Position.y), hitbox.Size);
 
+        }
+
+        public void draw(PaintEventArgs e)
+        {
+            e.Graphics.FillRectangle(brush, hitbox);
         }
 
 
