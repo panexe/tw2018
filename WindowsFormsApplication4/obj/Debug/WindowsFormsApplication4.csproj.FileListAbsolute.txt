@@ -19,3 +19,6 @@ M:\Visual Studio 2015\Projects\WindowsFormsApplication4\WindowsFormsApplication4
 P:\_TN_Projekte\Projekte 2018\Dodge_Kai,Flo,Lolo,Emil,LArs\WindowsFormsApplication4\WindowsFormsApplication4\bin\Debug\WindowsFormsApplication4.exe.config
 P:\_TN_Projekte\Projekte 2018\Dodge_Kai,Flo,Lolo,Emil,LArs\WindowsFormsApplication4\WindowsFormsApplication4\obj\Debug\WindowsFormsApplication4.exe
 P:\_TN_Projekte\Projekte 2018\Dodge_Kai,Flo,Lolo,Emil,LArs\WindowsFormsApplication4\WindowsFormsApplication4\obj\Debug\WindowsFormsApplication4.pdb
+C:\Users\lneumann.BSGG\Desktop\WindowsFormsApplication4\WindowsFormsApplication4\bin\Debug\WindowsFormsApplication4.exe.config
+C:\Users\lneumann.BSGG\Desktop\WindowsFormsApplication4\WindowsFormsApplication4\obj\Debug\WindowsFormsApplication4.exe
+C:\Users\lneumann.BSGG\Desktop\WindowsFormsApplication4\WindowsFormsApplication4\obj\Debug\WindowsFormsApplication4.pdb
