@@ -15,18 +15,26 @@ namespace WindowsFormsApplication4
         int velocity_min_X;
         int velocity_min_Y;
 
+        int screen_boarder;
+
+        bool offscreen;
+
         Rectangle hitbox { get; set; }
         public Vector2 velocity { get; set; }
         public Vector2 Position { get; set; }
         Random random;
 
-        public Shot(int _posy, int _velmax_X, int _velmax_Y, int _velmin_X, int _velmin_Y)
+        public Shot(int _posy, int _velmax_X, int _velmax_Y, int _velmin_X, int _velmin_Y, int _screen_boarder)
         {
             velocity_max_X = _velmax_X;
             velocity_max_Y = _velmax_Y;
 
             velocity_min_X = _velmin_X;
             velocity_min_Y = _velmin_Y;
+
+            screen_boarder = _screen_boarder;
+
+            offscreen = false;
 
             Position = new Vector2(-10, _posy);
             hitbox = new Rectangle(new Point(Position.x,Position.y), new Size(random.Next(10, 20), 20));
@@ -42,6 +50,10 @@ namespace WindowsFormsApplication4
         public void Move()
         {
             Position = new Vector2(Position.x + velocity.x, Position.y + velocity.y);
+            if(Position.x > screen_boarder)
+            {
+                offscreen = true;
+            }
 
         }
 
