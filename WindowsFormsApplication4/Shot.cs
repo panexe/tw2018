@@ -16,11 +16,14 @@ namespace WindowsFormsApplication4
         int velocity_min_X;
         int velocity_min_Y;
 
-        int screen_boarder;
+        int screen_boarder { get; set; }
 
-        int boarder_down;
-        int boarder_up;
-        bool offscreen;
+        public int boarder_down { get; set; }
+        public int boarder_up { get; set; }
+        public bool offscreen { get; set; }
+
+        public int right { get; set; }
+        public int left { get; set; }
 
         public Rectangle hitbox { get; set; }
         public Vector2 velocity { get; set; }
@@ -55,6 +58,8 @@ namespace WindowsFormsApplication4
 
             brush = _brush;
 
+            update();
+
 
         }
 
@@ -66,7 +71,7 @@ namespace WindowsFormsApplication4
                 offscreen = true;
             }
             hitbox = new Rectangle(new Point(Position.x, Position.y), hitbox.Size);
-
+            update();
         }
 
         public void draw(PaintEventArgs e)
@@ -74,6 +79,16 @@ namespace WindowsFormsApplication4
             e.Graphics.FillRectangle(brush, hitbox);
         }
 
+        public void update()
+        {
+            right = this.Position.x + hitbox.Width;
+            left = this.Position.x;
+
+            if(this.left > screen_boarder)
+            {
+                offscreen = true;
+            }
+        }
 
     }
 }

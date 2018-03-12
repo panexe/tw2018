@@ -51,7 +51,7 @@
             // gametimer
             // 
             this.gametimer.Enabled = true;
-            this.gametimer.Interval = 20;
+            this.gametimer.Interval = 10;
             this.gametimer.Tick += new System.EventHandler(this.gametimer_Tick);
             // 
             // Form1
@@ -62,6 +62,8 @@
             this.Controls.Add(this.screen);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             this.ResumeLayout(false);
 
         }

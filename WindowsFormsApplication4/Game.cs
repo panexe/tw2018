@@ -24,29 +24,31 @@ namespace WindowsFormsApplication4
         int score;
         bool hit;
 
-        Vector2 velocity;
+        public Vector2 velocity { get; set; }
         Random random;
 
         List<Shot> shots;
         public Player player { get; set; }
 
-        int screenboarder_top;
-        int screenboarder_bottom;
-        int screenboarder_right;
+        public int screenboarder_top { get; set; }
+        public int screenboarder_bottom { get; set; }
+        public int screenboarder_right { get; set; }
+        public int screenboarder_left { get; set; }
 
-        public Game(int _boarder_top, int _boarder_bottom, int _boarder_right)
+        public Game(int _boarder_top, int _boarder_bottom, int _boarder_right, int _boarder_left)
         {
 
 
             screenboarder_top = _boarder_top;
             screenboarder_bottom = _boarder_bottom;
             screenboarder_right = _boarder_right;
+            screenboarder_left = _boarder_left;
 
             score = 0;
             hit = false;
 
             shots = new List<Shot>();
-            player = new Player(5, 100, 100, new SolidBrush(Color.Brown));
+            player = new Player(5, 100, 100, new SolidBrush(Color.Brown),screenboarder_right, screenboarder_left ,screenboarder_top,screenboarder_bottom);
             
 
             
@@ -61,6 +63,9 @@ namespace WindowsFormsApplication4
                 s.Move();
             }
 
+            // Spieler Bewegen
+            player.update(velocity);
+            player.move();
             // Kolision
 
             if(colision() == true)
@@ -75,17 +80,18 @@ namespace WindowsFormsApplication4
             // Kollision checken 
             for (int i = 0; i < shots.Count; i++)
             {
-                if(shots[i].Position.x + shots[i].hitbox.Width > player.Position.x +3)
+                if (shots[i].right > player.left +1 || shots[i].left < player.right +1)
                 {
-                    // Hört auf zu überprüfen wenn die objekte weiter links als der Spieler sind 
-                    // um rechenleistung zu sparen
-                    return false;
-                }
-                if (shots[i].hitbox.Contains(player.hitbox))
-                {
-                    return true;
+                    if (shots[i].hitbox.Contains(player.hitbox))
+                    {
+                        return true;
+                    }
                 }
 
+                if (shots[i].offscreen == true)
+                {
+                    shots.Remove(shots[i]);
+                }
 
                 i++;
                 
