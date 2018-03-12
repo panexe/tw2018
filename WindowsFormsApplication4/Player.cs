@@ -31,7 +31,7 @@ namespace WindowsFormsApplication4
         public Player(int _speed, int sizex , int sizey , Brush _brush, int _screenboarder_right, int _screenboarder_left, int _boarder_up, int _boarder_down)
         {
             speed = _speed;
-            Position = new Vector2(400, 400);
+            Position = new Vector2(_screenboarder_right/2 - sizex/2, _boarder_down/2 - sizey/2);
             velocity = new Vector2(0, 0);
             brush = _brush;
             screen_boarder_right = _screenboarder_right;
@@ -62,10 +62,11 @@ namespace WindowsFormsApplication4
 
         public void move()
         {
-            if(this.right <= screen_boarder_right && this.left >= screen_boarder_left)
+            if(this.right +10 <= screen_boarder_right && this.left >= screen_boarder_left)
                 Position = new Vector2(Position.x + velocity.x, Position.y);
+           
 
-            if(this.up >= screen_boarder_up && this.down <= screen_boarder_down)
+            if (this.up >= screen_boarder_up || this.down <= screen_boarder_down)
                 Position = new Vector2(Position.x, Position.y + velocity.y);
 
         }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
@@ -19,6 +20,12 @@ namespace WindowsFormsApplication4
         public bool key_down { get; set; }
         public bool key_up { get; set; }
 
+        public int interval_factor { get; set; }
+        public int interval { get; set; }
+        public long tss { get; set; }
+        public Stopwatch shots_timer { get; set; }
+
+
 
         public Form1()
         {
@@ -26,8 +33,8 @@ namespace WindowsFormsApplication4
 
             InitializeComponent();
 
-            this.MinimumSize = new Size(1000, 1000);
-            this.MaximumSize = new Size(1000, 1000);
+            this.MinimumSize = new Size(1000, 800);
+            this.MaximumSize = new Size(1000, 800);
 
             game = new Game(this.Top, this.Bottom, this.Right,this.Left);
            gametimer.Start();
@@ -36,6 +43,15 @@ namespace WindowsFormsApplication4
             key_left = false;
             key_right = false;
             key_up = false;
+
+            interval_factor = 2;
+
+            shots_timer = new Stopwatch();
+            shot_timer.Start();
+
+            tss = 0;
+            interval = 100;
+            
 
         }
         
@@ -68,7 +84,7 @@ namespace WindowsFormsApplication4
 
             game.tick();
 
-            game.newShot();
+            
 
         }
 
@@ -85,14 +101,14 @@ namespace WindowsFormsApplication4
                 key_right = true;
 
             }
-            else if( e.KeyCode == Keys.Up && !key_down)
+            if( e.KeyCode == Keys.Up && !key_down)
             {
-                game.velocity = new Vector2(game.velocity.y, -5);
+                game.velocity = new Vector2(game.velocity.x, -5);
                 key_up = true;
             }
             else if(e.KeyCode == Keys.Down && !key_up)
             {
-                game.velocity = new Vector2(game.velocity.y, 5);
+                game.velocity = new Vector2(game.velocity.x, 5);
                 key_down = true;
 
             }
@@ -105,22 +121,39 @@ namespace WindowsFormsApplication4
                 game.velocity = new Vector2(0, game.velocity.y);
                 key_left = false;
             }
-            else if (e.KeyCode == Keys.Right)
+            if (e.KeyCode == Keys.Right)
             {
                 game.velocity = new Vector2(0, game.velocity.y);
                 key_right = false;
             }
-            else if (e.KeyCode == Keys.Up)
+            if (e.KeyCode == Keys.Up)
             {
-                game.velocity = new Vector2(game.velocity.y, 0);
+                game.velocity = new Vector2(game.velocity.x, 0);
                 key_up = false;
             }
-            else if (e.KeyCode == Keys.Down)
+            if (e.KeyCode == Keys.Down)
             {
-                game.velocity = new Vector2(game.velocity.y, 0);
+                game.velocity = new Vector2(game.velocity.x, 0);
                 key_down = false;
 
             }
+        }
+
+        private void shot_timer_Tick(object sender, EventArgs e)
+        {
+            if (shot_timer.Interval > 50)
+            shot_timer.Interval = Convert.ToInt32( 100 / Math.Pow(interval_factor, 0.8*interval_factor) * 4);
+
+            game.newShot();
+            //if(shot_timer.Interval > 50)
+            //shot_timer.Interval -= 30;
+                
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+
+            interval_factor += 1;
         }
     }
 }

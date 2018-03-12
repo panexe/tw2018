@@ -32,6 +32,8 @@
             this.screen = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.gametimer = new System.Windows.Forms.Timer(this.components);
+            this.shot_timer = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // screen
@@ -54,6 +56,18 @@
             this.gametimer.Interval = 10;
             this.gametimer.Tick += new System.EventHandler(this.gametimer_Tick);
             // 
+            // shot_timer
+            // 
+            this.shot_timer.Enabled = true;
+            this.shot_timer.Interval = 1000;
+            this.shot_timer.Tick += new System.EventHandler(this.shot_timer_Tick);
+            // 
+            // timer2
+            // 
+            this.timer2.Enabled = true;
+            this.timer2.Interval = 1000;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -73,6 +87,8 @@
         private System.Windows.Forms.Panel screen;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer gametimer;
+        private System.Windows.Forms.Timer shot_timer;
+        private System.Windows.Forms.Timer timer2;
     }
 }
 
