@@ -63,6 +63,7 @@ namespace WindowsFormsApplication4
                 s.Move();
             }
 
+            
             // Spieler Bewegen
             player.update(velocity);
             player.move();
@@ -80,13 +81,13 @@ namespace WindowsFormsApplication4
             // Kollision checken 
             for (int i = 0; i < shots.Count; i++)
             {
-                if (shots[i].right > player.left +1 || shots[i].left < player.right +1)
+                if (shots[i].right > player.left +3 || shots[i].left < player.right +3)
                 {
-                    if (shots[i].hitbox.Contains(player.hitbox))
+                    if (shots[i].hitbox.IntersectsWith(player.hitbox))
                     {
                         return true;
                     }
-                }
+               }
 
                 if (shots[i].offscreen == true)
                 {
@@ -106,7 +107,8 @@ namespace WindowsFormsApplication4
 
         public void lost()
         {
-
+           
+            MessageBox.Show("loser");
         }
 
         public void draw(PaintEventArgs e)

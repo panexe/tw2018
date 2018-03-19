@@ -67,6 +67,10 @@ namespace WindowsFormsApplication4
 
 
         }
+        public void stop_timers()
+        {
+            shot_timer.Stop();
+        }
 
         private void screen_Paint(object sender, PaintEventArgs e)
         {
@@ -142,7 +146,7 @@ namespace WindowsFormsApplication4
         private void shot_timer_Tick(object sender, EventArgs e)
         {
             if (shot_timer.Interval > 50)
-            shot_timer.Interval = Convert.ToInt32( 100 / Math.Pow(interval_factor, 0.8*interval_factor) * 4);
+            //shot_timer.Interval = Convert.ToInt32( 100 / Math.Pow(interval_factor, 0.8*interval_factor) * 4);
 
             game.newShot();
             //if(shot_timer.Interval > 50)

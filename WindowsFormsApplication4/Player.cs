@@ -62,13 +62,21 @@ namespace WindowsFormsApplication4
 
         public void move()
         {
-            if(this.right +10 <= screen_boarder_right && this.left >= screen_boarder_left)
+            if(this.right < screen_boarder_right && velocity.x >0 ) 
                 Position = new Vector2(Position.x + velocity.x, Position.y);
-           
 
-            if (this.up >= screen_boarder_up || this.down <= screen_boarder_down)
+            else if(this.left > screen_boarder_left && velocity.x < 0)
+            {
+                Position = new Vector2(Position.x + velocity.x, Position.y);
+            }
+
+            if (this.up > screen_boarder_up  && velocity.y < 0)
                 Position = new Vector2(Position.x, Position.y + velocity.y);
 
+            else if(this.down <screen_boarder_down  && velocity.y > 0)
+            {
+                Position = new Vector2(Position.x, Position.y + velocity.y);
+            }
         }
     }
 }

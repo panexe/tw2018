@@ -50,7 +50,7 @@ namespace WindowsFormsApplication4
             offscreen = false;
 
             Position = new Vector2(10, random.Next( boarder_up,boarder_down));
-            hitbox = new Rectangle(new Point(Position.x,Position.y), new Size(random.Next(10, 20), 20));
+            hitbox = new Rectangle(new Point(Position.x,Position.y), new Size(random.Next(10, 100), 20));
 
             velocity = new Vector2(
                 random.Next( velocity_min_X,velocity_max_X), 

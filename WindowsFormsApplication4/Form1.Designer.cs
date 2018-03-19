@@ -59,7 +59,7 @@
             // shot_timer
             // 
             this.shot_timer.Enabled = true;
-            this.shot_timer.Interval = 1000;
+            this.shot_timer.Interval = 120;
             this.shot_timer.Tick += new System.EventHandler(this.shot_timer_Tick);
             // 
             // timer2
@@ -87,8 +87,8 @@
         private System.Windows.Forms.Panel screen;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer gametimer;
-        private System.Windows.Forms.Timer shot_timer;
         private System.Windows.Forms.Timer timer2;
+        public System.Windows.Forms.Timer shot_timer;
     }
 }
 
