@@ -28,3 +28,12 @@ C:\Users\lneumann.BSGG\Desktop\WindowsFormsApplication4\WindowsFormsApplication4
 C:\Users\lneumann.BSGG\Desktop\WindowsFormsApplication4\WindowsFormsApplication4\obj\Debug\WindowsFormsApplication4.csproj.GenerateResource.Cache
 C:\Users\lneumann.BSGG\Desktop\WindowsFormsApplication4\WindowsFormsApplication4\bin\Debug\WindowsFormsApplication4.exe
 C:\Users\lneumann.BSGG\Desktop\WindowsFormsApplication4\WindowsFormsApplication4\bin\Debug\WindowsFormsApplication4.pdb
+C:\Users\Lars\Desktop\TechnikProjekt\tw2018\WindowsFormsApplication4\bin\Debug\WindowsFormsApplication4.exe.config
+C:\Users\Lars\Desktop\TechnikProjekt\tw2018\WindowsFormsApplication4\bin\Debug\WindowsFormsApplication4.exe
+C:\Users\Lars\Desktop\TechnikProjekt\tw2018\WindowsFormsApplication4\bin\Debug\WindowsFormsApplication4.pdb
+C:\Users\Lars\Desktop\TechnikProjekt\tw2018\WindowsFormsApplication4\obj\Debug\WindowsFormsApplication4.csprojResolveAssemblyReference.cache
+C:\Users\Lars\Desktop\TechnikProjekt\tw2018\WindowsFormsApplication4\obj\Debug\WindowsFormsApplication4.Form1.resources
+C:\Users\Lars\Desktop\TechnikProjekt\tw2018\WindowsFormsApplication4\obj\Debug\WindowsFormsApplication4.Properties.Resources.resources
+C:\Users\Lars\Desktop\TechnikProjekt\tw2018\WindowsFormsApplication4\obj\Debug\WindowsFormsApplication4.csproj.GenerateResource.Cache
+C:\Users\Lars\Desktop\TechnikProjekt\tw2018\WindowsFormsApplication4\obj\Debug\WindowsFormsApplication4.exe
+C:\Users\Lars\Desktop\TechnikProjekt\tw2018\WindowsFormsApplication4\obj\Debug\WindowsFormsApplication4.pdb

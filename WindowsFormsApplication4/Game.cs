@@ -22,7 +22,7 @@ namespace WindowsFormsApplication4
     class Game
     {
         int score;
-        bool hit;
+        public bool hit { get; set; }
 
         public Vector2 velocity { get; set; }
         Random random;
@@ -48,7 +48,7 @@ namespace WindowsFormsApplication4
             hit = false;
 
             shots = new List<Shot>();
-            player = new Player(5, 100, 100, new SolidBrush(Color.Brown),screenboarder_right, screenboarder_left ,screenboarder_top,screenboarder_bottom);
+            player = new Player(5, 50, 50, new SolidBrush(Color.Brown),screenboarder_right, screenboarder_left ,screenboarder_top,screenboarder_bottom);
             
 
             
@@ -69,7 +69,7 @@ namespace WindowsFormsApplication4
             player.move();
             // Kolision
 
-            if(colision() == true)
+            if(colision() && !hit)
             {
                 lost();
             }
@@ -107,8 +107,9 @@ namespace WindowsFormsApplication4
 
         public void lost()
         {
-           
+            hit = true;
             MessageBox.Show("loser");
+            
         }
 
         public void draw(PaintEventArgs e)

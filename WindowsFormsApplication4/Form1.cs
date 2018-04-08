@@ -25,7 +25,7 @@ namespace WindowsFormsApplication4
         public long tss { get; set; }
         public Stopwatch shots_timer { get; set; }
 
-
+        bool button_start;
 
         public Form1()
         {
@@ -51,19 +51,24 @@ namespace WindowsFormsApplication4
 
             tss = 0;
             interval = 100;
-            
+
+            button_start = false;
+
 
         }
         
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            // Screen updaten 
-            screen.Invalidate();
+            
+                // Screen updaten 
+                screen.Invalidate();
 
-            game.tick();
+                game.tick();
 
-            game.newShot();
+                game.newShot();
+            
+            
 
 
         }
@@ -88,6 +93,10 @@ namespace WindowsFormsApplication4
 
             game.tick();
 
+            if (game.hit)
+            {
+                gametimer.Stop();
+            }
             
 
         }
@@ -145,12 +154,15 @@ namespace WindowsFormsApplication4
 
         private void shot_timer_Tick(object sender, EventArgs e)
         {
-            if (shot_timer.Interval > 50)
-            //shot_timer.Interval = Convert.ToInt32( 100 / Math.Pow(interval_factor, 0.8*interval_factor) * 4);
+            
+                if (shot_timer.Interval > 50)
+                    //shot_timer.Interval = Convert.ToInt32( 100 / Math.Pow(interval_factor, 0.8*interval_factor) * 4);
 
-            game.newShot();
-            //if(shot_timer.Interval > 50)
-            //shot_timer.Interval -= 30;
+
+                    game.newShot();
+                //if(shot_timer.Interval > 50)
+                //shot_timer.Interval -= 30;
+            
                 
         }
 
@@ -159,5 +171,7 @@ namespace WindowsFormsApplication4
 
             interval_factor += 1;
         }
+
+       
     }
 }

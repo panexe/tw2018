@@ -43,6 +43,7 @@
             this.screen.Name = "screen";
             this.screen.Size = new System.Drawing.Size(739, 409);
             this.screen.TabIndex = 0;
+            this.screen.TabStop = true;
             this.screen.Paint += new System.Windows.Forms.PaintEventHandler(this.screen_Paint);
             // 
             // timer1
