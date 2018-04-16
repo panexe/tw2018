@@ -14,6 +14,8 @@ namespace WindowsFormsApplication4
 {
     public partial class Form1 : Form
     {
+        public int points { get; set; }
+
         Game game;
         public bool key_left{ get; set; }
         public bool key_right { get; set; }
@@ -29,12 +31,12 @@ namespace WindowsFormsApplication4
 
         public Form1()
         {
-            
+            points = 0;
 
             InitializeComponent();
 
-            this.MinimumSize = new Size(1000, 800);
-            this.MaximumSize = new Size(1000, 800);
+            this.MinimumSize = new Size(600, 600);
+            this.MaximumSize = new Size(600, 600);
 
             game = new Game(this.Top, this.Bottom, this.Right,this.Left);
            gametimer.Start();
@@ -96,6 +98,12 @@ namespace WindowsFormsApplication4
             if (game.hit)
             {
                 gametimer.Stop();
+                timer1.Stop();
+                timer2.Stop();
+                shots_timer.Stop();
+
+                btn_restart.Enabled = true;
+                btn_restart.Visible = true;
             }
             
 
@@ -168,10 +176,15 @@ namespace WindowsFormsApplication4
 
         private void timer2_Tick(object sender, EventArgs e)
         {
-
+            points++;
             interval_factor += 1;
+
+            label1.Text = points.ToString();
         }
 
-       
+        private void btn_restart_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
     }
 }

@@ -37,7 +37,7 @@ namespace WindowsFormsApplication4
 
         public Game(int _boarder_top, int _boarder_bottom, int _boarder_right, int _boarder_left)
         {
-
+            random = new Random();
 
             screenboarder_top = _boarder_top;
             screenboarder_bottom = _boarder_bottom;
@@ -102,7 +102,7 @@ namespace WindowsFormsApplication4
 
         public void newShot()
         {
-            shots.Add(new Shot(screenboarder_top, screenboarder_bottom, 5, 0, 5, 0, screenboarder_right,new SolidBrush(Color.Black)));
+            shots.Add(new Shot(screenboarder_top, screenboarder_bottom, 5, 0, 5, 0, screenboarder_right,new SolidBrush(Color.Black),random));
         }
 
         public void lost()

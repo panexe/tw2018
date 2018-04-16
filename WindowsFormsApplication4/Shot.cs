@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -30,11 +31,13 @@ namespace WindowsFormsApplication4
         public Vector2 Position { get; set; }
         Random random;
 
+
+
         Brush brush;
 
-        public Shot(int _boarder_up, int _boarder_down, int _velmax_X, int _velmax_Y, int _velmin_X, int _velmin_Y, int _screen_boarder, Brush _brush)
+        public Shot(int _boarder_up, int _boarder_down, int _velmax_X, int _velmax_Y, int _velmin_X, int _velmin_Y, int _screen_boarder, Brush _brush, Random r)
         {
-            random = new Random();
+            random = r;
 
             velocity_max_X = _velmax_X;
             velocity_max_Y = _velmax_Y;
@@ -49,8 +52,10 @@ namespace WindowsFormsApplication4
 
             offscreen = false;
 
-            Position = new Vector2(10, random.Next( boarder_up,boarder_down));
-            hitbox = new Rectangle(new Point(Position.x,Position.y), new Size(random.Next(10, 100), 20));
+
+
+            Position = new Vector2(-100, random.Next( boarder_up,boarder_down));
+            hitbox = new Rectangle(new Point(Position.x,Position.y), new Size(random.Next(1,100), random.Next(5,20)));
 
             velocity = new Vector2(
                 random.Next( velocity_min_X,velocity_max_X), 
